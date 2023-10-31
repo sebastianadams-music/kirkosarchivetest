@@ -35,7 +35,7 @@ let events = []
 let visibleEvents = ['Concert', 'Screening', 'Meeting/workshare', 'Exhibition', 'Listening event', 'Improv jam', 'open mic', 'Improv jam (body)', 'Theatre', 'Improv comedy', 
 'Lecture', 'Radio broadcast', 'Event', 'Demo', 'Live interactive set', 'Interview/Q&A', 'Live electronic set', 'Writing group', 'Group meetup/workshare', 'Launch', 'Durational performance', 
 'Installation', 'WIP presentation', 'Festival', 'Residency', 'Poetry/spoken word', 'Happening', 'Outdoor performance', 'Improvised Performance', 'Intervention'];
-let content = document.getElementById("content")
+let content = document.getElementById("archive_content")
 
 
 onValue(q, (snapshot) => {
