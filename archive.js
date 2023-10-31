@@ -79,7 +79,7 @@ onValue(q, (snapshot) => {
         p.textContent = event.Pieces_Performed
         content.appendChild(p)
         let hr = document.createElement("hr")
-        content.appendChild(hrqs)
+        content.appendChild(hr)
         
     })   
   })
