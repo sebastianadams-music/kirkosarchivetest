@@ -46,43 +46,77 @@ const firebaseConfig = {
           // console.log(e.FormatFilter)
           if (visibleEvents.indexOf(e.Format1) > -1 || visibleEvents.indexOf(e.Format2) > -1
           ){  
-              console.log(child.val())
+            //   console.log(child.val())
               events.unshift(child.val()) 
   
           }
   
       }
       )
-      console.log("events", events)
+    //   console.log("events", events)
       events.forEach(event => {
-          let p = document.createElement("p")
-          var date = new Date(event.StartDate)
-          p.textContent = date.toLocaleString('default', {dateStyle: 'long' })
-          console.log(event)
-          content.appendChild(p)
-          console.log(event.StartDate)
-          console.log(event.Event)
-          let head = document.createElement("h2")
-          head.textContent = event.Event
-          content.appendChild(head)
-          console.log(event.Ensemble)
+        let br = document.createElement("br")
+        content.appendChild(br)
+        let p = document.createElement("b")
+        var date = new Date(event.StartDate)
+        p.textContent = date.toLocaleString('default', {dateStyle: 'long' })
+        //   console.log(event)
+        content.appendChild(p)
+        //   p.classList.add("home");
+        //   console.log(event.StartDate)
+        //   console.log(event.Event)
+        br = document.createElement("br")
+        content.appendChild(br)
+        br = document.createElement("br")
+        content.appendChild(br)
+        let head = document.createElement("span")
+        head.classList.add("home");
+        head.textContent = event.Event
+        content.appendChild(head)
+        
+          if (event.Ensemble){
+            console.log(event.Ensemble)
+            br = document.createElement("br")
+          content.appendChild(br)
+          br = document.createElement("br")
+          content.appendChild(br)
           p = document.createElement("strong")
           p.textContent = event.Ensemble
           content.appendChild(p)
-          console.log(event.Venue)
-          p = document.createElement("p")
+          }
+          
+          br = document.createElement("br")
+          content.appendChild(br)
+          br = document.createElement("br")
+          content.appendChild(br)
+        //   console.log(event.Venue)
+          p = document.createElement("b")
           p.textContent = event.Venue
           content.appendChild(p)
-          console.log(event.Bio)
-          p = document.createElement("i")
-          p.textContent = event.Bio
-          content.appendChild(p)
-          console.log(event.Pieces_Performed)
+        //   console.log(event.Bio)
+
+          if (event.Bio){
+            br = document.createElement("br")
+            content.appendChild(br)
+            br = document.createElement("br")
+            content.appendChild(br)
+            p = document.createElement("i")
+            p.textContent = event.Bio
+            content.appendChild(p)
+          }
+
+          
+        //   console.log(event.Pieces_Performed)
            p = document.createElement("i")
           p.textContent = event.Pieces_Performed
           content.appendChild(p)
+          br = document.createElement("br")
+          content.appendChild(br)
+          br = document.createElement("br")
+          content.appendChild(br)
           let hr = document.createElement("hr")
           content.appendChild(hr)
+
           
       })   
     })
