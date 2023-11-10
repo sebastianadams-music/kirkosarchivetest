@@ -59,72 +59,82 @@ const firebaseConfig = {
         content.appendChild(br)
 
         // event name 
-        br = document.createElement("br")
-        content.appendChild(br)
-        br = document.createElement("br")
-        content.appendChild(br)
+        // br = document.createElement("br")
+        // content.appendChild(br)
+        // br = document.createElement("br")
+        // content.appendChild(br)
         let head = document.createElement("span")
         head.classList.add("home");
         head.textContent = event.Event.toUpperCase()
         content.appendChild(head)
 
-        // date
+        // date + venue + ensemble
+        br = document.createElement("br")
+        content.appendChild(br)
         let p = document.createElement("b")
         var date = new Date(event.StartDate)
-        p.textContent = date.toLocaleString('default', {dateStyle: 'long' })
+        if (event.Ensemble){
+          p.textContent = date.toLocaleString('default', {dateStyle: 'long' }) + " / " + event.Venue + " / " + event.Ensemble
+
+        }
+        else {
+          p.textContent = date.toLocaleString('default', {dateStyle: 'long' }) + " / " + event.Venue
+
+        }
+
+
+     
+
         //   console.log(event)
         content.appendChild(p)
 
-        //   p.classList.add("home");
-        //   console.log(event.StartDate)
-        //   console.log(event.Event)
         
-
-        // ensemble
-          if (event.Ensemble){
-            console.log(event.Ensemble)
-            br = document.createElement("br")
-          content.appendChild(br)
-          br = document.createElement("br")
-          content.appendChild(br)
-          p = document.createElement("strong")
-          p.textContent = event.Ensemble
-          content.appendChild(p)
-          }
           
-        // venue
-          br = document.createElement("br")
-          content.appendChild(br)
-          br = document.createElement("br")
-          content.appendChild(br)
-        //   console.log(event.Venue)
-          p = document.createElement("b")
-          p.textContent = event.Venue
-          content.appendChild(p)
+        // more info
         
-        // bio 
+        
 
           if (event.Bio){
             br = document.createElement("br")
             content.appendChild(br)
             br = document.createElement("br")
             content.appendChild(br)
-            p = document.createElement("i")
+            p = document.createElement("details")
             p.textContent = event.Bio
+            let summary = document.createElement("summary")
+            summary.textContent = "description"
+            p.appendChild(summary)
             content.appendChild(p)
                     //   console.log(event.Bio)
-
           }
 
         // pieces performed 
+        if (event.Pieces_Performed){
+
+          if (event.Pieces_Performed != "#N/A"){
           //   console.log(event.Pieces_Performed)
-           p = document.createElement("i")
+          br = document.createElement("br")
+          content.appendChild(br)
+          br = document.createElement("br")
+          content.appendChild(br)
+          let s = document.createElement("b")
+          s.textContent = "Pieces performed: "
+          p = document.createElement("span")
           p.textContent = event.Pieces_Performed
+          content.appendChild(s)
           content.appendChild(p)
+          }
+
+          
+        }
+          
+        
+        // blank space 
           br = document.createElement("br")
           content.appendChild(br)
           br = document.createElement("br")
           content.appendChild(br)
+          // dividing line 
           let hr = document.createElement("hr")
           content.appendChild(hr)
 
