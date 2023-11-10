@@ -128,10 +128,12 @@ const firebaseConfig = {
           
         }
           
-        
-        // blank space 
+        if (!event.Bio){
           br = document.createElement("br")
           content.appendChild(br)
+        }
+        // blank space 
+        
           br = document.createElement("br")
           content.appendChild(br)
           // dividing line 
