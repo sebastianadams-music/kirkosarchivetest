@@ -57,23 +57,30 @@ const firebaseConfig = {
       events.forEach(event => {
         let br = document.createElement("br")
         content.appendChild(br)
-        let p = document.createElement("b")
-        var date = new Date(event.StartDate)
-        p.textContent = date.toLocaleString('default', {dateStyle: 'long' })
-        //   console.log(event)
-        content.appendChild(p)
-        //   p.classList.add("home");
-        //   console.log(event.StartDate)
-        //   console.log(event.Event)
+
+        // event name 
         br = document.createElement("br")
         content.appendChild(br)
         br = document.createElement("br")
         content.appendChild(br)
         let head = document.createElement("span")
         head.classList.add("home");
-        head.textContent = event.Event
+        head.textContent = event.Event.toUpperCase()
         content.appendChild(head)
+
+        // date
+        let p = document.createElement("b")
+        var date = new Date(event.StartDate)
+        p.textContent = date.toLocaleString('default', {dateStyle: 'long' })
+        //   console.log(event)
+        content.appendChild(p)
+
+        //   p.classList.add("home");
+        //   console.log(event.StartDate)
+        //   console.log(event.Event)
         
+
+        // ensemble
           if (event.Ensemble){
             console.log(event.Ensemble)
             br = document.createElement("br")
@@ -85,6 +92,7 @@ const firebaseConfig = {
           content.appendChild(p)
           }
           
+        // venue
           br = document.createElement("br")
           content.appendChild(br)
           br = document.createElement("br")
@@ -93,7 +101,8 @@ const firebaseConfig = {
           p = document.createElement("b")
           p.textContent = event.Venue
           content.appendChild(p)
-        //   console.log(event.Bio)
+        
+        // bio 
 
           if (event.Bio){
             br = document.createElement("br")
@@ -103,10 +112,12 @@ const firebaseConfig = {
             p = document.createElement("i")
             p.textContent = event.Bio
             content.appendChild(p)
+                    //   console.log(event.Bio)
+
           }
 
-          
-        //   console.log(event.Pieces_Performed)
+        // pieces performed 
+          //   console.log(event.Pieces_Performed)
            p = document.createElement("i")
           p.textContent = event.Pieces_Performed
           content.appendChild(p)
